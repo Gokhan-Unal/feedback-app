@@ -1,5 +1,6 @@
 import React from 'react';
 import FeedbackItem from './FeedbackItem';
+import PropTypes from 'prop-types';
 
 export default function FeedbackList({ feedback }) {
   if (!feedback || feedback.length === 0) {
@@ -14,3 +15,13 @@ export default function FeedbackList({ feedback }) {
     </div>
   );
 }
+
+FeedbackList.propTypes = {
+  feedback: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      rating: PropTypes.number,
+      text: PropTypes.string,
+    })
+  ),
+};
