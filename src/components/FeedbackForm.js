@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from './shared/Button';
 import Card from './shared/Card';
 
 export default function FeedbackForm() {
@@ -15,7 +16,9 @@ export default function FeedbackForm() {
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
-          <button type='submit'>Send</button>
+          <Button type='submit'>
+            Send
+          </Button>
         </div>
       </form>
     </Card>
