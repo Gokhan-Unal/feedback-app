@@ -14,7 +14,9 @@ export default function Card({ children, reverse }) {
         backgroundColor: reverse ? 'rgba(0, 0, 0, 0.5)' : '#fff',
         color: reverse ? '#fff' : '#000',
       }}
-    ></div>
+    >
+      {children}
+    </div>
   );
 }
 
