@@ -9,6 +9,11 @@ export default function App() {
   const [feedback, setFeedback] = useState(FeedbackData);
   console.log(feedback);
 
+  const addFeedback = (newFeedback) => {
+    console.log(newFeedback);
+    setFeedback([...feedback, newFeedback]);
+  };
+
   const deleteFeedback = (id) => {
     if (window.confirm('Are you sure you want to delete this feedback?')) {
       setFeedback(feedback.filter((item) => item.id !== id));
@@ -19,7 +24,7 @@ export default function App() {
     <div>
       <Header />
       <div className='container'>
-        <FeedbackForm />
+        <FeedbackForm handleAdd={addFeedback} />
         <FeedbackStats feedback={feedback} />
         <FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
       </div>

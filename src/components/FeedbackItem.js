@@ -18,7 +18,7 @@ export default function FeedbackItem({ id, rating, text, handleDelete }) {
 }
 
 FeedbackItem.propTypes = {
-  id: PropTypes.number,
+  id: PropTypes.string,
   rating: PropTypes.number,
   text: PropTypes.string,
 };

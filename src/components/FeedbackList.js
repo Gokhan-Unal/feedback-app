@@ -19,7 +19,7 @@ export default function FeedbackList({ feedback, handleDelete }) {
 FeedbackList.propTypes = {
   feedback: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       rating: PropTypes.number,
       text: PropTypes.string,
     })
