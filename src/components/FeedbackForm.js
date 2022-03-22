@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import RatingSelect from './RatingSelect';
 import Button from './shared/Button';
 import Card from './shared/Card';
 import { v4 as uuidv4 } from 'uuid';
+import FeedbackContext from '../context/FeedbackContext';
 
-export default function FeedbackForm({ handleAdd }) {
+export default function FeedbackForm() {
+  const { addFeedback } = useContext(FeedbackContext);
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
@@ -38,7 +40,7 @@ export default function FeedbackForm({ handleAdd }) {
         rating,
       };
       console.log(newFeedback);
-      handleAdd(newFeedback);
+      addFeedback(newFeedback);
       setText('');
     }
   };
