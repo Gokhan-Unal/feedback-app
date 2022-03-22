@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import FeedbackContext from '../context/FeedbackContext';
 
-export default function FeedbackStats({ feedback }) {
+export default function FeedbackStats() {
+  const { feedback } = useContext(FeedbackContext);
   const averageRating =
     feedback.reduce((acc, item) => acc + item.rating, 0) / feedback.length;
   return (

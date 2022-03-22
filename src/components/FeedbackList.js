@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import FeedbackItem from './FeedbackItem';
 import PropTypes from 'prop-types';
 import { motion, AnimatePresence } from 'framer-motion';
+import FeedbackContext from '../context/FeedbackContext';
 
-export default function FeedbackList({ feedback, handleDelete }) {
+export default function FeedbackList({ handleDelete }) {
+  const { feedback } = useContext(FeedbackContext);
   if (!feedback || feedback.length === 0) {
     return <p>No feedback given yet</p>;
   }
@@ -26,12 +28,3 @@ export default function FeedbackList({ feedback, handleDelete }) {
   );
 }
 
-FeedbackList.propTypes = {
-  feedback: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string,
-      rating: PropTypes.number,
-      text: PropTypes.string,
-    })
-  ),
-};
