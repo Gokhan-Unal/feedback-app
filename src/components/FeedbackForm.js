@@ -2,11 +2,10 @@ import React, { useState, useContext, useEffect } from 'react';
 import RatingSelect from './RatingSelect';
 import Button from './shared/Button';
 import Card from './shared/Card';
-import { v4 as uuidv4 } from 'uuid';
 import FeedbackContext from '../context/FeedbackContext';
 
 export default function FeedbackForm() {
-  const { addFeedback, feedbackEdit } = useContext(FeedbackContext);
+  const { addFeedback, feedbackEdit, updateFeedback } = useContext(FeedbackContext);
   const [text, setText] = useState('');
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [message, setMessage] = useState('');
@@ -43,12 +42,15 @@ export default function FeedbackForm() {
     e.preventDefault();
     if (text.trim().length > 10) {
       const newFeedback = {
-        id: uuidv4(),
         text,
         rating,
       };
-      console.log(newFeedback);
-      addFeedback(newFeedback);
+      if (feedbackEdit.edit === true) {
+        console.log(feedbackEdit.edit.id);
+        updateFeedback(feedbackEdit.item.id, newFeedback);
+      } else {
+        addFeedback(newFeedback);
+      }
       setText('');
     }
   };
