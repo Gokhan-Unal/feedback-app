@@ -1,0 +1,29 @@
+{
+  "feedback": [
+    {
+      "id": 1,
+      "rating": 10,
+      "text": "This is a great product. I would definitely buy it again."
+    },
+    {
+      "id": 2,
+      "rating": 5,
+      "text": "This is a great product."
+    },
+    {
+      "id": 3,
+      "rating": 8,
+      "text": "A little bit expensive."
+    },
+    {
+      "id": 11,
+      "rating": 5,
+      "text": "Meh"
+    },
+    {
+      "rating": 5,
+      "text": "Meh",
+      "id": 12
+    }
+  ]
+}
